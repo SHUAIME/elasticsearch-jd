@@ -59,14 +59,12 @@ public class ESContentServiceimpl implements EsContentService {
         BulkResponse bulk = restHighLevelClient.bulk(bulkRequest, RequestOptions.DEFAULT);
         return !bulk.hasFailures();
     }
-
     public List<Map<String,Object>> searchRequest(String keywords, Integer pageNo, Integer pageSize) throws Exception {
         ArrayList<Map<String,Object>> li = new ArrayList<>();
 
         if (pageNo <= 1){
             pageNo = 1;
         }
-
         //条件搜索
         SearchRequest searchRequest = new SearchRequest("jd_goods");
         SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
@@ -104,10 +102,8 @@ public class ESContentServiceimpl implements EsContentService {
                 }
                 sourceAsMap.put("title",n_title);//高亮字段替换原来字段
             }
-
             li.add(sourceAsMap);
         }
-
         return li;
     }
 }

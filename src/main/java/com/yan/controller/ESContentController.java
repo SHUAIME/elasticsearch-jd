@@ -33,7 +33,6 @@ public class ESContentController {
     public List<Map<String,Object>> search(@PathVariable("keywords") String keywords,
                                            @PathVariable("pageNo") Integer pageNo,
                                            @PathVariable("pageSize") Integer pageSize){
-
         try {
             return esContentService.searchRequest(keywords,pageNo,pageSize);
         } catch (Exception e) {
